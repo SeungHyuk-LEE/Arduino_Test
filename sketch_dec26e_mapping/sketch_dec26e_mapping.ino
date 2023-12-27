@@ -1,0 +1,26 @@
+//맵 함수
+// map(value, fromLow, fronHigh, toLow, toHigh);
+// 맵핑 값, 값의 하한값, 값의 상한값, 대상범위 하한값, 대상범위 상한값
+const int led[6] = {3,5,6,9,10,11};
+const int analogPin = A0;
+
+
+
+void setup() {
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  int sensorInput = analogRead(analogPin);
+  int level = map(sensorInput, 0, 1023, 0, 6);
+    for(int n=0; n<6; n++){
+      if(n<level){
+        analogWrite(led[n],255);
+      }
+      else{
+        analogWrite(led[n],0); 
+      }
+    }
+
+}
